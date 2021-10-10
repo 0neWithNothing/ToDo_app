@@ -17,7 +17,7 @@
     <li class="list-group-item list-group-item-action {% if todo.importance %}list-group-item-danger{% else %}list-group-item-warning{% endif %}">
         <a class="stretched-link text-decoration-none {% if todo.importance %}text-danger{% else %}text-dark{% endif %}" href="{% url 'viewtodo' todo.id %}">
             <b>{{ todo.title }}</b>
-            {% if todo.memo %} - {{ todo.memo|truncatewords:10 }}{% endif %}
+            {% if todo.memo %} - {{ todo.memo|truncatewords:15 }}{% endif %}
         </a>
     </li>
     {% endfor %}
