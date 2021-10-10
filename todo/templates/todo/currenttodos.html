@@ -1,0 +1,26 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+{% if not todos %}
+<h1>Current Todos</h1>
+<div class="text-center mt-5">
+    <h2>You don't have any todos! You are free.</h2>
+    <a class="btn btn-warning btn-lg mt-5" href="{% url 'createtodo' %}">New Todo</a>
+</div>
+{% else %}
+    <h1 class="mt-5">{{ todos.count }} Current Todo{{ todos.count|pluralize }}</h1>
+{% endif %}
+
+<ul class="list-group mt-5">
+    {% for todo in todos %}
+    <li class="list-group-item list-group-item-action {% if todo.importance %}list-group-item-danger{% else %}list-group-item-warning{% endif %}">
+        <a class="stretched-link text-decoration-none {% if todo.importance %}text-danger{% else %}text-dark{% endif %}" href="{% url 'viewtodo' todo.id %}">
+            <b>{{ todo.title }}</b>
+            {% if todo.memo %} - {{ todo.memo|truncatewords:10 }}{% endif %}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

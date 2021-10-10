@@ -1,0 +1,36 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        <h1>New Todo</h1>
+    </div>
+</div>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-5">
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group mb-4">
+                <label class="mb-2" for="title">Title</label>
+                <input type="text" name="title" class="form-control" id="title">
+            </div>
+            <div class="form-group mb-4">
+                <label class="mb-2" for="memo">Memo</label><br>
+                <textarea class="form-control" name="memo" cols="59" rows="5" id="memo"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="importance">Important</label>
+                <input class="form-check-label" type="checkbox" name="importance" id="importance">
+            </div>
+            <button type="submit" class="btn btn-warning btn-lg mt-3">Save</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
