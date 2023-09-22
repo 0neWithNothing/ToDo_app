@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g7tj6q0+36z=h%1!7c#3-mk%3oeylq)u)f#lap$*r#b)@7b-3u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['shizoid.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -129,7 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/login'
 
-try:
-    from .local_settings import *
-except ImportError:
-    print("Looks like no local file. You must be on production")
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     print("Looks like no local file. You must be on production")
